@@ -1,0 +1,10 @@
+
+# Snort 2 local detection rules
+# Created from my TryHackMe Snort lab.
+# These rules generate alerts; they do not block traffic.
+
+# Detect ICMP traffic between any source and destination.
+alert icmp any any -> any any (msg:"ICMP Packet Found"; sid:1000001; rev:1;)
+
+# Detect TCP traffic destined for port 80 (commonly used by HTTP).
+alert tcp any any -> any 80 (msg:"HTTP Traffic Detected"; sid:1000002; rev:1;)
