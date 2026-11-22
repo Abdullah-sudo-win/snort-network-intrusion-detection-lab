@@ -1,3 +1,4 @@
+
 # Snort Network Intrusion Detection Lab
 
 ## Project Overview
@@ -28,11 +29,13 @@ During this lab, I focused on:
 - Observing and analyzing generated alerts.
 - Reviewing Snort log output.
 
+---
+
 ## 1. Snort Installation and Configuration Validation
 
 I first checked the installed Snort version and tested the configuration file to make sure Snort could initialize successfully.
 
-Commands used:
+**Commands used:**
 
 ```bash
 snort -V
@@ -44,17 +47,21 @@ sudo snort -c /etc/snort/snort.conf -T
 
 **Result:** Snort successfully validated the configuration.
 
+---
+
 ## 2. Network Traffic Monitoring
 
 I used Snort in packet monitoring mode to observe network traffic on the `eth0` interface.
 
-Command used:
+**Command used:**
 
 ```bash
 sudo snort -v
 ```
 
 This allowed me to observe packet information, including network communication details and TCP traffic.
+
+---
 
 ## 3. Custom Detection Rules
 
@@ -80,6 +87,8 @@ alert tcp any any -> any 80 (msg:"HTTP Traffic Detected"; sid:1000002; rev:1;)
 
 Generate an alert for TCP traffic directed to destination port 80.
 
+---
+
 ## 4. Alert Verification and Analysis
 
 After creating and loading my custom rules, I monitored the generated alerts.
@@ -96,18 +105,76 @@ These results demonstrated that my custom rules were matching the observed netwo
 
 **Important:** These alerts indicate traffic matching the configured rules. They do not automatically mean that malicious activity occurred.
 
-## Skills Practiced
+---
 
-- Snort configuration and validation
-- Network traffic monitoring
-- Basic packet analysis
-- ICMP traffic detection
-- HTTP-related traffic detection
-- Custom Snort rule creation
-- Alert monitoring and interpretation
-- Linux command-line operations
+## 5. Evidence and Screenshots
 
-## Tools and Technologies
+The following screenshots document the steps I completed during the TryHackMe lab.
+
+### 01. Snort Configuration Validation
+
+This screenshot shows the Snort configuration validation step.
+
+![Snort Configuration Validation](evidence/01-Snort-Configuration-Validation.png)
+
+### 02. Snort Sniffer Mode
+
+This screenshot documents Snort running in packet-sniffing mode.
+
+![Snort Sniffer Mode](evidence/02-snort-sniffer-mode.png)
+
+### 03. Packet Payload Analysis
+
+This screenshot documents the packet and payload inspection step.
+
+![Snort Packet Payload Analysis](evidence/03-snort-packet-payload-analysis.png)
+
+### 04. Network Traffic Logging
+
+This screenshot documents the network traffic logging step.
+
+![Snort Network Traffic Logging](evidence/04-Snort-Network-Traffic-Logging.png)
+
+### 05. IDS Mode Without Logging
+
+This screenshot documents the IDS-mode test without logging.
+
+![Snort IDS Mode Without Logging](evidence/05-Snort-IDS-Mode-No-Logging.png)
+
+### 06. Background Daemon Mode
+
+This screenshot documents Snort running in background daemon mode.
+
+![Snort Background Daemon Mode](evidence/06-Snort-Background-Daemon-Mode.png)
+
+### 07. Daemon Process Verification
+
+This screenshot documents the verification of the Snort daemon process.
+
+![Snort Daemon Process Verification](evidence/07-Snort-Daemon-Process-Verification.png)
+
+### 08. ICMP Traffic Detection
+
+This screenshot documents the ICMP traffic detection step.
+
+![Snort ICMP Traffic Detection](evidence/08-Snort-ICMP-Traffic-Detection.png)
+
+---
+
+## 6. Skills Practiced
+
+Through this hands-on lab, I practiced:
+
+- Snort configuration and validation.
+- Network traffic monitoring.
+- Basic packet analysis.
+- ICMP traffic detection.
+- HTTP-related traffic detection.
+- Custom Snort rule creation.
+- Alert monitoring and interpretation.
+- Linux command-line operations.
+
+## 7. Tools and Technologies
 
 - Snort 2.9.7.0
 - Ubuntu Linux
@@ -117,7 +184,9 @@ These results demonstrated that my custom rules were matching the observed netwo
 - ICMP
 - HTTP
 
-## Conclusion
+---
+
+## 8. Conclusion
 
 This lab helped me develop practical experience with Snort and understand how a Network Intrusion Detection System can monitor network traffic and generate alerts based on custom detection rules.
 
